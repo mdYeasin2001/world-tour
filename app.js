@@ -4,13 +4,19 @@ fetch('https://restcountries.eu/rest/v2/all')
 
 function getCountriesData(data){
     // console.log(data);
-    const ul = document.getElementById('country-container');
+    const countries = document.getElementById('country-container');
     for (let i = 0; i < data.length; i++) {
         const country = data[i];
         // console.log(country.name);
-        const li = document.createElement('li');
-        li.innerText = country.name;
-        ul.appendChild(li);
+        const countryDiv = document.createElement('div');
+        const h3 = document.createElement('h3');
+        h3.innerText = country.name;
+        const p = document.createElement('p');
+        p.innerText = country.capital;
+        countryDiv.appendChild(h3);
+        countryDiv.appendChild(p);
+        countries.appendChild(countryDiv);
+        
         
     }
 }
