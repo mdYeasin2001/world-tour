@@ -3,10 +3,8 @@ fetch('https://restcountries.eu/rest/v2/all')
 .then(data => getCountriesData(data))
 
 const getCountriesData =(data) => {
-    // console.log(data);
     const countries = document.getElementById('country-container');
     data.forEach(country => {
-        // console.log(country);
         const countryInfo = `
             <h3 class="country-name">${country.name}</h3>
             <p>${country.capital}</p>
@@ -22,13 +20,15 @@ const getCountriesData =(data) => {
 
 const getCountryDetails = country => {
     const url = `https://restcountries.eu/rest/v2/name/${country}`
-    // console.log(country);
     fetch(url)
     .then(res => res.json())
-    .then(data => showCountryDetails(data))
+    .then(data => showCountryDetails(data));
+    const hideArea = document.getElementById('all-country-details');
+    hideArea.style.display = "none";
+
+
 }
 const showCountryDetails = detail => {
-    // console.log(detail[0]);
     const showArea = document.getElementById('country-details');
     const countryDetail = `
         <img src="${detail[0].flag}" width="400px">
