@@ -1,0 +1,14 @@
+.country{
+    border: 1px solid salmon;
+    text-align: center;
+    
+    border-radius: 5px;
+}
+#country-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+}
+.country-name{
+    color: #009867;
+}
